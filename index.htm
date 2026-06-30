@@ -13,48 +13,71 @@
         }
 
         body {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1a0b2e 0%, #2d1b4e 30%, #4a1a6b 60%, #2d1b4e 100%);
             min-height: 100vh;
             padding: 10px 10px 30px;
             display: flex;
             justify-content: center;
             align-items: flex-start;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 50%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(118, 75, 162, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 50% 20%, rgba(237, 137, 54, 0.05) 0%, transparent 50%);
+            animation: floatBg 20s ease-in-out infinite alternate;
+            z-index: 0;
+        }
+
+        @keyframes floatBg {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(2%, 1%) rotate(3deg); }
         }
 
         .container {
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             max-width: 550px;
             width: 100%;
-            border-radius: 20px;
-            padding: 16px 14px 20px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            margin-top: 4px;
+            border-radius: 24px;
+            padding: 18px 16px 22px;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            position: relative;
+            z-index: 1;
         }
 
         .header {
             text-align: center;
-            margin-bottom: 14px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.08);
         }
 
         .header h1 {
-            background: linear-gradient(135deg, #ffffff 0%, #e0e7ff 100%);
+            background: linear-gradient(135deg, #f6e05e 0%, #f6ad55 30%, #fc8181 60%, #b794f4 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            font-size: 22px;
+            font-size: 24px;
             font-weight: 800;
             letter-spacing: -0.5px;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-shadow: none;
+            filter: drop-shadow(0 2px 10px rgba(246, 224, 94, 0.2));
         }
 
         .header p {
-            color: rgba(255, 255, 255, 0.85);
-            font-size: 13px;
-            margin-top: 3px;
+            color: #a0aec0;
+            font-size: 14px;
+            margin-top: 4px;
             font-weight: 500;
         }
 
@@ -62,94 +85,101 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 8px;
-            padding: 8px 12px;
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 10px;
+            padding: 10px 14px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
         }
 
         .user-info-compact {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
         .user-avatar-compact {
-            width: 36px;
-            height: 36px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #f6e05e 0%, #f6ad55 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-weight: 700;
-            font-size: 16px;
+            color: #1a0b2e;
+            font-weight: 800;
+            font-size: 18px;
             text-transform: uppercase;
             flex-shrink: 0;
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            border: 2px solid rgba(246, 224, 94, 0.3);
+            box-shadow: 0 0 20px rgba(246, 224, 94, 0.1);
         }
 
         .user-details-compact {
-            line-height: 1.3;
+            line-height: 1.4;
         }
 
         .user-name-compact {
             font-weight: 700;
             color: #ffffff;
-            font-size: 15px;
-            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+            font-size: 16px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
         }
 
         .user-contact-compact {
-            font-size: 11px;
-            color: rgba(255, 255, 255, 0.8);
+            font-size: 12px;
+            color: #a0aec0;
         }
 
         .user-status-compact {
             font-size: 10px;
-            padding: 2px 10px;
-            border-radius: 8px;
+            padding: 3px 12px;
+            border-radius: 10px;
             display: inline-block;
-            font-weight: 600;
-            margin-top: 1px;
+            font-weight: 700;
+            margin-top: 2px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .user-status-compact.approved {
-            background: rgba(72, 187, 120, 0.3);
-            color: #c6f6d5;
+            background: rgba(72, 187, 120, 0.25);
+            color: #68d391;
             border: 1px solid rgba(72, 187, 120, 0.3);
+            box-shadow: 0 0 20px rgba(72, 187, 120, 0.05);
         }
 
         .user-status-compact.pending {
-            background: rgba(237, 137, 54, 0.3);
-            color: #fefcbf;
+            background: rgba(237, 137, 54, 0.25);
+            color: #f6ad55;
             border: 1px solid rgba(237, 137, 54, 0.3);
+            box-shadow: 0 0 20px rgba(237, 137, 54, 0.05);
         }
 
         .user-status-compact.rejected {
-            background: rgba(229, 62, 62, 0.3);
-            color: #fed7d7;
+            background: rgba(229, 62, 62, 0.25);
+            color: #fc8181;
             border: 1px solid rgba(229, 62, 62, 0.3);
+            box-shadow: 0 0 20px rgba(229, 62, 62, 0.05);
         }
 
         .logout-btn-compact {
-            padding: 6px 14px;
+            padding: 7px 16px;
             background: linear-gradient(135deg, #fc8181 0%, #e53e3e 100%);
             color: white;
             border: none;
-            border-radius: 8px;
+            border-radius: 10px;
             font-size: 12px;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
             flex-shrink: 0;
+            box-shadow: 0 4px 15px rgba(229, 62, 62, 0.2);
         }
 
         .logout-btn-compact:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(229, 62, 62, 0.4);
+            box-shadow: 0 6px 20px rgba(229, 62, 62, 0.3);
         }
 
         .logout-btn-compact:active {
@@ -158,34 +188,40 @@
 
         .welcome-compact {
             text-align: center;
-            padding: 6px 0 10px;
+            padding: 8px 0 12px;
         }
 
         .welcome-compact h2 {
             color: #ffffff;
-            font-size: 18px;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            font-size: 20px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .welcome-compact h2 span {
+            background: linear-gradient(135deg, #f6e05e, #f6ad55);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .welcome-compact p {
-            color: rgba(255, 255, 255, 0.8);
+            color: #a0aec0;
             font-size: 13px;
-            margin-top: 2px;
+            margin-top: 3px;
         }
 
         .quick-actions-compact {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr;
-            gap: 6px;
-            margin-top: 6px;
-            margin-bottom: 10px;
+            gap: 8px;
+            margin-top: 8px;
+            margin-bottom: 12px;
         }
 
         .quick-action-btn-compact {
-            padding: 10px 4px;
-            background: rgba(255, 255, 255, 0.12);
-            border: 1.5px solid rgba(255, 255, 255, 0.15);
-            border-radius: 10px;
+            padding: 12px 4px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1.5px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
             text-align: center;
             cursor: pointer;
             transition: all 0.2s ease;
@@ -194,9 +230,9 @@
 
         .quick-action-btn-compact:hover {
             transform: translateY(-2px);
-            background: rgba(255, 255, 255, 0.2);
-            border-color: rgba(255, 255, 255, 0.3);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
         }
 
         .quick-action-btn-compact:active {
@@ -204,61 +240,70 @@
         }
 
         .quick-action-btn-compact .icon {
-            font-size: 22px;
+            font-size: 24px;
             display: block;
-            margin-bottom: 2px;
+            margin-bottom: 3px;
         }
 
         .quick-action-btn-compact .label {
             font-size: 10px;
             font-weight: 700;
-            color: #ffffff;
+            color: #e2e8f0;
             letter-spacing: 0.3px;
             text-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
         }
 
         .quick-action-btn-compact.primary-action {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.4) 0%, rgba(118, 75, 162, 0.4) 100%);
-            border-color: rgba(102, 126, 234, 0.5);
+            background: linear-gradient(135deg, rgba(246, 224, 94, 0.15) 0%, rgba(246, 173, 85, 0.15) 100%);
+            border-color: rgba(246, 224, 94, 0.2);
+        }
+
+        .quick-action-btn-compact.primary-action .label {
+            color: #f6e05e;
         }
 
         .quick-action-btn-compact.primary-action:hover {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.6) 0%, rgba(118, 75, 162, 0.6) 100%);
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            background: linear-gradient(135deg, rgba(246, 224, 94, 0.25) 0%, rgba(246, 173, 85, 0.25) 100%);
+            box-shadow: 0 4px 20px rgba(246, 224, 94, 0.1);
         }
 
         .summary-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
             padding: 0 4px;
         }
 
         .summary-header-title {
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 700;
-            color: #ffffff;
+            color: #e2e8f0;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
             text-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
         }
 
+        .summary-header-title .emoji {
+            font-size: 18px;
+        }
+
         .summary-refresh {
-            background: rgba(255, 255, 255, 0.15);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: #ffffff;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            color: #a0aec0;
             font-size: 12px;
             font-weight: 600;
             cursor: pointer;
-            padding: 4px 12px;
-            border-radius: 8px;
+            padding: 5px 14px;
+            border-radius: 10px;
             transition: 0.2s;
         }
 
         .summary-refresh:hover {
-            background: rgba(255, 255, 255, 0.25);
+            background: rgba(255, 255, 255, 0.15);
+            color: #e2e8f0;
         }
 
         .summary-refresh:active {
@@ -268,75 +313,80 @@
         .summary-grid {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-            gap: 5px;
-            margin-bottom: 10px;
+            gap: 6px;
+            margin-bottom: 12px;
         }
 
         .summary-card-item {
-            padding: 8px 4px;
-            border-radius: 10px;
+            padding: 10px 4px;
+            border-radius: 12px;
             text-align: center;
             transition: all 0.2s ease;
-            border: 1.5px solid rgba(255, 255, 255, 0.1);
-            background: rgba(255, 255, 255, 0.08);
+            border: 1.5px solid rgba(255, 255, 255, 0.06);
+            background: rgba(255, 255, 255, 0.04);
             backdrop-filter: blur(10px);
         }
 
         .summary-card-item:hover {
             transform: translateY(-2px);
-            border-color: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.15);
         }
 
         .summary-card-item.total {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.4) 0%, rgba(118, 75, 162, 0.4) 100%);
-            border-color: rgba(102, 126, 234, 0.5);
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.3) 0%, rgba(118, 75, 162, 0.3) 100%);
+            border-color: rgba(102, 126, 234, 0.3);
         }
 
         .summary-card-item.sc {
-            background: rgba(72, 187, 120, 0.2);
-            border-color: rgba(72, 187, 120, 0.3);
+            background: rgba(72, 187, 120, 0.15);
+            border-color: rgba(72, 187, 120, 0.2);
         }
 
         .summary-card-item.st {
-            background: rgba(237, 137, 54, 0.2);
-            border-color: rgba(237, 137, 54, 0.3);
+            background: rgba(237, 137, 54, 0.15);
+            border-color: rgba(237, 137, 54, 0.2);
         }
 
         .summary-card-item.obc {
-            background: rgba(66, 153, 225, 0.2);
-            border-color: rgba(66, 153, 225, 0.3);
+            background: rgba(66, 153, 225, 0.15);
+            border-color: rgba(66, 153, 225, 0.2);
         }
 
         .summary-card-item.general {
-            background: rgba(229, 62, 62, 0.2);
-            border-color: rgba(229, 62, 62, 0.3);
+            background: rgba(229, 62, 62, 0.15);
+            border-color: rgba(229, 62, 62, 0.2);
         }
 
         .summary-card-item .summary-number {
-            font-size: 24px;
+            font-size: 26px;
             font-weight: 800;
             display: block;
             line-height: 1.2;
         }
 
         .summary-card-item.total .summary-number {
-            color: #ffffff;
+            color: #b794f4;
+            text-shadow: 0 0 30px rgba(183, 148, 244, 0.2);
         }
 
         .summary-card-item.sc .summary-number {
-            color: #c6f6d5;
+            color: #68d391;
+            text-shadow: 0 0 30px rgba(104, 211, 145, 0.15);
         }
 
         .summary-card-item.st .summary-number {
-            color: #fefcbf;
+            color: #f6ad55;
+            text-shadow: 0 0 30px rgba(246, 173, 85, 0.15);
         }
 
         .summary-card-item.obc .summary-number {
-            color: #bee3f8;
+            color: #63b3ed;
+            text-shadow: 0 0 30px rgba(99, 179, 237, 0.15);
         }
 
         .summary-card-item.general .summary-number {
-            color: #fed7d7;
+            color: #fc8181;
+            text-shadow: 0 0 30px rgba(252, 129, 129, 0.15);
         }
 
         .summary-card-item .summary-label {
@@ -345,27 +395,27 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
             display: block;
-            line-height: 1.3;
+            line-height: 1.4;
         }
 
         .summary-card-item.total .summary-label {
-            color: rgba(255, 255, 255, 0.9);
+            color: #b794f4;
         }
 
         .summary-card-item.sc .summary-label {
-            color: #c6f6d5;
+            color: #68d391;
         }
 
         .summary-card-item.st .summary-label {
-            color: #fefcbf;
+            color: #f6ad55;
         }
 
         .summary-card-item.obc .summary-label {
-            color: #bee3f8;
+            color: #63b3ed;
         }
 
         .summary-card-item.general .summary-label {
-            color: #fed7d7;
+            color: #fc8181;
         }
 
         .summary-card-item .summary-number.loading {
@@ -380,31 +430,32 @@
 
         .tabs {
             display: flex;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 14px;
             padding: 4px;
-            margin-bottom: 14px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
         }
 
         .tab {
             flex: 1;
-            padding: 10px;
+            padding: 12px;
             text-align: center;
             border: none;
             background: transparent;
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 700;
-            color: rgba(255, 255, 255, 0.7);
+            color: #a0aec0;
             cursor: pointer;
-            border-radius: 8px;
+            border-radius: 10px;
             transition: all 0.3s ease;
         }
 
         .tab.active {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.6) 0%, rgba(118, 75, 162, 0.6) 100%);
-            color: white;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.4) 0%, rgba(118, 75, 162, 0.4) 100%);
+            color: #ffffff;
+            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.15);
+            border: 1px solid rgba(102, 126, 234, 0.2);
         }
 
         .tab:active {
@@ -412,14 +463,14 @@
         }
 
         .form-group {
-            margin-bottom: 12px;
+            margin-bottom: 14px;
         }
 
         .form-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-bottom: 12px;
+            gap: 12px;
+            margin-bottom: 14px;
         }
 
         .form-row .form-group {
@@ -428,10 +479,10 @@
 
         label {
             display: block;
-            font-size: 12px;
+            font-size: 13px;
             font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 4px;
+            color: #e2e8f0;
+            margin-bottom: 5px;
             letter-spacing: 0.3px;
             text-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
         }
@@ -439,23 +490,24 @@
         .required {
             color: #fc8181;
             margin-left: 3px;
+            text-shadow: 0 0 20px rgba(252, 129, 129, 0.2);
         }
 
         input, select {
             width: 100%;
-            padding: 10px 12px;
-            font-size: 14px;
-            border: 2px solid rgba(255, 255, 255, 0.15);
-            border-radius: 10px;
+            padding: 12px 14px;
+            font-size: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
             transition: all 0.3s ease;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
             color: #ffffff;
             font-weight: 500;
         }
 
         input::placeholder {
-            color: rgba(255, 255, 255, 0.6);
+            color: rgba(255, 255, 255, 0.4);
             font-size: 13px;
         }
 
@@ -463,29 +515,30 @@
             color: #ffffff;
             -webkit-appearance: none;
             appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='rgba(255,255,255,0.8)' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='rgba(255,255,255,0.6)' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
             background-repeat: no-repeat;
-            background-position: right 12px center;
-            padding-right: 35px;
+            background-position: right 14px center;
+            padding-right: 40px;
             cursor: pointer;
         }
 
         select option {
-            background: #4a5568;
-            color: white;
+            background: #2d1b4e;
+            color: #ffffff;
+            padding: 8px;
         }
 
         input:focus, select:focus {
             outline: none;
-            border-color: rgba(102, 126, 234, 0.6);
-            background: rgba(255, 255, 255, 0.15);
-            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15);
+            border-color: rgba(102, 126, 234, 0.4);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.05);
         }
 
         input:read-only {
-            background: rgba(72, 187, 120, 0.15);
-            border-color: rgba(72, 187, 120, 0.3);
-            color: #c6f6d5;
+            background: rgba(72, 187, 120, 0.08);
+            border-color: rgba(72, 187, 120, 0.2);
+            color: #68d391;
         }
 
         .password-toggle {
@@ -493,46 +546,64 @@
         }
 
         .password-toggle input {
-            padding-right: 45px;
+            padding-right: 48px;
         }
 
         .toggle-btn {
             position: absolute;
-            right: 12px;
+            right: 14px;
             top: 50%;
             transform: translateY(-50%);
             background: none;
             border: none;
-            font-size: 16px;
+            font-size: 18px;
             cursor: pointer;
-            color: rgba(255, 255, 255, 0.6);
+            color: rgba(255, 255, 255, 0.4);
             padding: 4px;
             transition: 0.2s;
         }
 
         .toggle-btn:hover {
-            color: rgba(255, 255, 255, 0.9);
+            color: rgba(255, 255, 255, 0.8);
         }
 
         .submit-btn {
             width: 100%;
-            padding: 14px;
+            padding: 15px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border: none;
-            border-radius: 12px;
-            font-size: 16px;
+            border-radius: 14px;
+            font-size: 17px;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
-            margin-top: 6px;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            margin-top: 8px;
+            box-shadow: 0 4px 25px rgba(102, 126, 234, 0.3);
             letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+            opacity: 0;
+            transition: 0.5s;
+        }
+
+        .submit-btn:hover::before {
+            opacity: 1;
         }
 
         .submit-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+            box-shadow: 0 6px 30px rgba(102, 126, 234, 0.4);
         }
 
         .submit-btn:active {
@@ -545,32 +616,32 @@
         }
 
         .submit-btn.secondary {
-            background: linear-gradient(135deg, rgba(72, 187, 120, 0.8) 0%, rgba(56, 161, 105, 0.8) 100%);
-            box-shadow: 0 4px 15px rgba(72, 187, 120, 0.3);
-            backdrop-filter: blur(10px);
+            background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+            box-shadow: 0 4px 25px rgba(72, 187, 120, 0.25);
         }
 
         .submit-btn.secondary:hover {
-            box-shadow: 0 6px 20px rgba(72, 187, 120, 0.4);
+            box-shadow: 0 6px 30px rgba(72, 187, 120, 0.35);
         }
 
         .btn-cancel {
             width: 100%;
-            padding: 12px;
-            background: rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.8);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 10px;
-            font-size: 14px;
+            padding: 13px;
+            background: rgba(255, 255, 255, 0.05);
+            color: #a0aec0;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+            font-size: 15px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            margin-top: 6px;
+            margin-top: 8px;
         }
 
         .btn-cancel:hover {
-            background: rgba(255, 255, 255, 0.2);
-            border-color: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.08);
+            color: #e2e8f0;
+            border-color: rgba(255, 255, 255, 0.12);
         }
 
         .btn-cancel:active {
@@ -578,68 +649,76 @@
         }
 
         .hint-text {
-            font-size: 11px;
-            color: rgba(255, 255, 255, 0.6);
-            margin-top: 3px;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.4);
+            margin-top: 4px;
         }
 
         .auto-generated {
-            background: rgba(72, 187, 120, 0.15) !important;
-            border-color: rgba(72, 187, 120, 0.3) !important;
-            color: #c6f6d5 !important;
+            background: rgba(72, 187, 120, 0.08) !important;
+            border-color: rgba(72, 187, 120, 0.2) !important;
+            color: #68d391 !important;
         }
 
         .lookup-success {
-            background: rgba(72, 187, 120, 0.15) !important;
-            border-color: rgba(72, 187, 120, 0.3) !important;
-            color: #c6f6d5 !important;
+            background: rgba(72, 187, 120, 0.08) !important;
+            border-color: rgba(72, 187, 120, 0.2) !important;
+            color: #68d391 !important;
         }
 
         .lookup-error {
-            background: rgba(229, 62, 62, 0.15) !important;
-            border-color: rgba(229, 62, 62, 0.3) !important;
-            color: #fed7d7 !important;
+            background: rgba(229, 62, 62, 0.08) !important;
+            border-color: rgba(229, 62, 62, 0.2) !important;
+            color: #fc8181 !important;
         }
 
         .lookup-loading {
-            background: rgba(237, 137, 54, 0.15) !important;
-            border-color: rgba(237, 137, 54, 0.3) !important;
-            color: #fefcbf !important;
+            background: rgba(237, 137, 54, 0.08) !important;
+            border-color: rgba(237, 137, 54, 0.2) !important;
+            color: #f6ad55 !important;
         }
 
         .message {
             display: none;
-            padding: 10px 14px;
-            border-radius: 10px;
+            padding: 12px 16px;
+            border-radius: 12px;
             text-align: center;
             font-weight: 700;
-            margin-top: 10px;
+            margin-top: 12px;
             animation: slideUp 0.3s ease;
             word-wrap: break-word;
             white-space: pre-line;
-            font-size: 14px;
+            font-size: 15px;
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.06);
         }
 
         .message.success {
-            background: rgba(72, 187, 120, 0.3);
-            color: #c6f6d5;
+            background: rgba(72, 187, 120, 0.15);
+            color: #68d391;
+            border-color: rgba(72, 187, 120, 0.2);
+            box-shadow: 0 0 30px rgba(72, 187, 120, 0.05);
         }
 
         .message.error {
-            background: rgba(229, 62, 62, 0.3);
-            color: #fed7d7;
+            background: rgba(229, 62, 62, 0.15);
+            color: #fc8181;
+            border-color: rgba(229, 62, 62, 0.2);
+            box-shadow: 0 0 30px rgba(229, 62, 62, 0.05);
         }
 
         .message.info {
-            background: rgba(66, 153, 225, 0.3);
-            color: #bee3f8;
+            background: rgba(66, 153, 225, 0.15);
+            color: #63b3ed;
+            border-color: rgba(66, 153, 225, 0.2);
+            box-shadow: 0 0 30px rgba(66, 153, 225, 0.05);
         }
 
         .message.warning {
-            background: rgba(237, 137, 54, 0.3);
-            color: #fefcbf;
+            background: rgba(237, 137, 54, 0.15);
+            color: #f6ad55;
+            border-color: rgba(237, 137, 54, 0.2);
+            box-shadow: 0 0 30px rgba(237, 137, 54, 0.05);
         }
 
         @keyframes slideUp {
@@ -649,11 +728,11 @@
 
         .loading {
             display: inline-block;
-            width: 18px;
-            height: 18px;
-            border: 3px solid rgba(255,255,255,0.3);
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,0.2);
             border-radius: 50%;
-            border-top-color: white;
+            border-top-color: #ffffff;
             animation: spin 0.7s ease infinite;
             vertical-align: middle;
             margin-right: 8px;
@@ -669,34 +748,34 @@
 
         .form-footer {
             text-align: center;
-            margin-top: 12px;
+            margin-top: 14px;
             font-size: 14px;
-            color: rgba(255, 255, 255, 0.8);
+            color: #a0aec0;
         }
 
         .form-footer a {
-            color: #ffffff;
+            color: #f6e05e;
             font-weight: 700;
             text-decoration: none;
-            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+            text-shadow: 0 0 20px rgba(246, 224, 94, 0.1);
         }
 
         .form-footer a:hover {
             text-decoration: underline;
-            color: #e0e7ff;
+            color: #f6ad55;
         }
 
         .data-entry-section {
-            margin-top: 12px;
-            padding-top: 12px;
-            border-top: 2px solid rgba(255, 255, 255, 0.1);
+            margin-top: 14px;
+            padding-top: 14px;
+            border-top: 2px solid rgba(255, 255, 255, 0.05);
         }
 
         .data-entry-section h3 {
             color: #ffffff;
-            margin-bottom: 12px;
-            font-size: 18px;
-            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 14px;
+            font-size: 20px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         .modal-overlay {
@@ -706,7 +785,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0,0,0,0.6);
+            background: rgba(0,0,0,0.7);
             backdrop-filter: blur(8px);
             z-index: 1000;
             padding: 20px;
@@ -719,53 +798,53 @@
         }
 
         .modal {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(26, 11, 46, 0.95);
             backdrop-filter: blur(20px);
             max-width: 400px;
             width: 100%;
-            border-radius: 16px;
-            padding: 20px;
+            border-radius: 18px;
+            padding: 24px;
             animation: slideUp 0.3s ease;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.06);
         }
 
         .modal-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 16px;
+            margin-bottom: 18px;
         }
 
         .modal-header h3 {
             color: #ffffff;
-            font-size: 18px;
-            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+            font-size: 20px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         .modal-close {
             background: none;
             border: none;
-            font-size: 22px;
+            font-size: 24px;
             cursor: pointer;
-            color: rgba(255, 255, 255, 0.6);
+            color: #a0aec0;
             padding: 4px 8px;
             transition: all 0.3s ease;
         }
 
         .modal-close:hover {
-            color: #ffffff;
+            color: #fc8181;
             transform: rotate(90deg);
         }
 
         .photo-attach-area {
-            border: 2px dashed rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
-            padding: 12px;
+            border: 2px dashed rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 14px;
             text-align: center;
             transition: all 0.3s ease;
-            background: rgba(255, 255, 255, 0.05);
-            min-height: 90px;
+            background: rgba(255, 255, 255, 0.03);
+            min-height: 100px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -774,45 +853,45 @@
         }
 
         .photo-attach-area.has-photo {
-            border-color: rgba(72, 187, 120, 0.5);
-            background: rgba(72, 187, 120, 0.1);
+            border-color: rgba(72, 187, 120, 0.3);
+            background: rgba(72, 187, 120, 0.05);
         }
 
         .photo-attach-area .photo-icon {
-            font-size: 32px;
-            margin-bottom: 2px;
+            font-size: 36px;
+            margin-bottom: 4px;
         }
 
         .photo-attach-area .photo-text {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 13px;
+            color: #e2e8f0;
+            font-size: 14px;
         }
 
         .photo-attach-area .photo-sub-text {
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 11px;
-            margin-top: 1px;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 12px;
+            margin-top: 2px;
         }
 
         .photo-attach-area .photo-preview-img {
             max-width: 100%;
-            max-height: 100px;
-            border-radius: 6px;
-            margin-top: 4px;
+            max-height: 120px;
+            border-radius: 8px;
+            margin-top: 6px;
             object-fit: contain;
         }
 
         .photo-attach-area .remove-photo-btn {
             position: absolute;
-            top: 6px;
-            right: 6px;
+            top: 8px;
+            right: 8px;
             background: rgba(229, 62, 62, 0.8);
             color: white;
             border: none;
             border-radius: 50%;
-            width: 24px;
-            height: 24px;
-            font-size: 12px;
+            width: 28px;
+            height: 28px;
+            font-size: 14px;
             cursor: pointer;
             display: none;
             align-items: center;
@@ -826,30 +905,32 @@
 
         .photo-attach-area .photo-actions {
             display: flex;
-            gap: 8px;
-            margin-top: 6px;
+            gap: 10px;
+            margin-top: 8px;
             flex-wrap: wrap;
             justify-content: center;
         }
 
         .photo-attach-area .photo-actions button {
-            padding: 6px 14px;
+            padding: 8px 18px;
             border: none;
-            border-radius: 8px;
+            border-radius: 10px;
             font-weight: 700;
             cursor: pointer;
-            font-size: 12px;
+            font-size: 13px;
             transition: all 0.3s ease;
         }
 
         .photo-attach-area .btn-camera {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
         }
 
         .photo-attach-area .btn-gallery {
-            background: linear-gradient(135deg, rgba(72, 187, 120, 0.8) 0%, rgba(56, 161, 105, 0.8) 100%);
+            background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
             color: white;
+            box-shadow: 0 4px 15px rgba(72, 187, 120, 0.2);
         }
 
         .photo-attach-area .photo-actions button:hover {
@@ -865,9 +946,9 @@
         }
 
         .photo-status {
-            font-size: 12px;
-            color: rgba(255, 255, 255, 0.8);
-            margin-top: 4px;
+            font-size: 13px;
+            color: #e2e8f0;
+            margin-top: 5px;
             display: none;
         }
 
@@ -876,11 +957,11 @@
         }
 
         .photo-status.attached {
-            color: #c6f6d5;
+            color: #68d391;
         }
 
         .photo-status.error {
-            color: #fed7d7;
+            color: #fc8181;
         }
 
         .cropper-overlay {
@@ -890,10 +971,10 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0,0,0,0.9);
-            backdrop-filter: blur(8px);
+            background: rgba(0,0,0,0.92);
+            backdrop-filter: blur(10px);
             z-index: 2000;
-            padding: 16px;
+            padding: 20px;
             align-items: center;
             justify-content: center;
             flex-direction: column;
@@ -904,16 +985,17 @@
         }
 
         .cropper-container {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(26, 11, 46, 0.95);
             backdrop-filter: blur(20px);
-            border-radius: 16px;
+            border-radius: 18px;
             max-width: 460px;
             width: 100%;
             max-height: 90vh;
             overflow: hidden;
             position: relative;
-            padding: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
         }
 
         .cropper-header {
@@ -921,19 +1003,20 @@
             justify-content: space-between;
             align-items: center;
             color: white;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
         }
 
         .cropper-header h3 {
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 700;
+            color: #ffffff;
         }
 
         .cropper-header .close-cropper {
             background: none;
             border: none;
-            color: rgba(229, 62, 62, 0.8);
-            font-size: 24px;
+            color: #fc8181;
+            font-size: 26px;
             cursor: pointer;
             padding: 4px 8px;
         }
@@ -942,7 +1025,7 @@
             position: relative;
             width: 100%;
             overflow: hidden;
-            border-radius: 8px;
+            border-radius: 10px;
             background: rgba(0, 0, 0, 0.3);
             touch-action: none;
             user-select: none;
@@ -958,8 +1041,8 @@
 
         .crop-box {
             position: absolute;
-            border: 2px solid rgba(72, 187, 120, 0.8);
-            box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.5);
+            border: 2px solid #48bb78;
+            box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.6);
             cursor: move;
             touch-action: none;
             user-select: none;
@@ -968,86 +1051,89 @@
 
         .crop-box .crop-handle {
             position: absolute;
-            width: 14px;
-            height: 14px;
-            background: rgba(72, 187, 120, 0.8);
+            width: 16px;
+            height: 16px;
+            background: #48bb78;
             border: 2px solid white;
             border-radius: 50%;
+            box-shadow: 0 0 15px rgba(72, 187, 120, 0.3);
         }
 
-        .crop-box .crop-handle.nw { top: -7px; left: -7px; cursor: nw-resize; }
-        .crop-box .crop-handle.ne { top: -7px; right: -7px; cursor: ne-resize; }
-        .crop-box .crop-handle.sw { bottom: -7px; left: -7px; cursor: sw-resize; }
-        .crop-box .crop-handle.se { bottom: -7px; right: -7px; cursor: se-resize; }
-        .crop-box .crop-handle.n { top: -7px; left: 50%; transform: translateX(-50%); cursor: n-resize; }
-        .crop-box .crop-handle.s { bottom: -7px; left: 50%; transform: translateX(-50%); cursor: s-resize; }
-        .crop-box .crop-handle.w { top: 50%; left: -7px; transform: translateY(-50%); cursor: w-resize; }
-        .crop-box .crop-handle.e { top: 50%; right: -7px; transform: translateY(-50%); cursor: e-resize; }
+        .crop-box .crop-handle.nw { top: -8px; left: -8px; cursor: nw-resize; }
+        .crop-box .crop-handle.ne { top: -8px; right: -8px; cursor: ne-resize; }
+        .crop-box .crop-handle.sw { bottom: -8px; left: -8px; cursor: sw-resize; }
+        .crop-box .crop-handle.se { bottom: -8px; right: -8px; cursor: se-resize; }
+        .crop-box .crop-handle.n { top: -8px; left: 50%; transform: translateX(-50%); cursor: n-resize; }
+        .crop-box .crop-handle.s { bottom: -8px; left: 50%; transform: translateX(-50%); cursor: s-resize; }
+        .crop-box .crop-handle.w { top: 50%; left: -8px; transform: translateY(-50%); cursor: w-resize; }
+        .crop-box .crop-handle.e { top: 50%; right: -8px; transform: translateY(-50%); cursor: e-resize; }
 
         .crop-info {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 13px;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
             text-align: center;
-            padding: 8px 0;
+            padding: 10px 0;
         }
 
         .cropper-actions {
             display: flex;
-            gap: 10px;
-            margin-top: 12px;
+            gap: 12px;
+            margin-top: 14px;
         }
 
         .cropper-actions button {
             flex: 1;
-            padding: 12px;
+            padding: 14px;
             border: none;
-            border-radius: 10px;
+            border-radius: 12px;
             font-weight: 700;
-            font-size: 14px;
+            font-size: 15px;
             cursor: pointer;
             transition: all 0.3s ease;
         }
 
         .cropper-actions .btn-crop-cancel {
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            color: #a0aec0;
+            border: 1px solid rgba(255, 255, 255, 0.06);
         }
 
         .cropper-actions .btn-crop-cancel:hover {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.08);
+            color: #e2e8f0;
         }
 
         .cropper-actions .btn-crop-apply {
-            background: linear-gradient(135deg, rgba(72, 187, 120, 0.8) 0%, rgba(56, 161, 105, 0.8) 100%);
+            background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
             color: white;
+            box-shadow: 0 4px 25px rgba(72, 187, 120, 0.25);
         }
 
         .cropper-actions .btn-crop-apply:hover {
             transform: scale(1.02);
-            box-shadow: 0 4px 15px rgba(72, 187, 120, 0.3);
+            box-shadow: 0 6px 30px rgba(72, 187, 120, 0.35);
         }
 
         .sync-status {
-            font-size: 11px;
-            color: rgba(255, 255, 255, 0.7);
-            margin-top: 4px;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 5px;
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
         }
 
         .sync-status .online {
-            color: #c6f6d5;
+            color: #68d391;
         }
 
         .sync-status .offline {
-            color: #fefcbf;
+            color: #f6ad55;
         }
 
         .sync-status .syncing {
-            color: #bee3f8;
+            color: #63b3ed;
             animation: pulse 1s ease-in-out infinite;
         }
 
@@ -1058,26 +1144,26 @@
             }
             
             .form-row .form-group {
-                margin-bottom: 12px;
+                margin-bottom: 14px;
             }
             
             .container {
-                padding: 14px 10px 18px;
+                padding: 14px 12px 18px;
             }
             
             input, select {
-                font-size: 15px;
-                padding: 12px 14px;
+                font-size: 16px;
+                padding: 14px 16px;
             }
             
             .quick-actions-compact {
                 grid-template-columns: 1fr 1fr;
-                gap: 5px;
+                gap: 6px;
             }
 
             .summary-grid {
                 grid-template-columns: 1fr 1fr 1fr;
-                gap: 5px;
+                gap: 6px;
             }
 
             .summary-grid .summary-card-item.total {
@@ -1085,15 +1171,15 @@
             }
             
             .quick-action-btn-compact {
-                padding: 8px 4px;
+                padding: 10px 4px;
             }
             
             .quick-action-btn-compact .icon {
-                font-size: 20px;
+                font-size: 22px;
             }
 
             .summary-card-item .summary-number {
-                font-size: 22px;
+                font-size: 24px;
             }
 
             .photo-attach-area .photo-actions {
@@ -1101,31 +1187,31 @@
             }
 
             .photo-attach-area .photo-actions button {
-                padding: 6px 12px;
-                font-size: 11px;
+                padding: 8px 14px;
+                font-size: 12px;
             }
 
             .cropper-container {
-                padding: 12px;
+                padding: 14px;
             }
 
             .crop-box .crop-handle {
-                width: 18px;
-                height: 18px;
+                width: 20px;
+                height: 20px;
             }
 
             .header h1 {
-                font-size: 20px;
+                font-size: 22px;
             }
 
             .tab {
-                font-size: 13px;
-                padding: 8px;
+                font-size: 14px;
+                padding: 10px;
             }
 
             .submit-btn {
-                font-size: 15px;
-                padding: 12px;
+                font-size: 16px;
+                padding: 14px;
             }
         }
 
@@ -1135,23 +1221,43 @@
             }
         }
 
-        /* Scrollbar styling */
         ::-webkit-scrollbar {
             width: 6px;
         }
 
         ::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.02);
             border-radius: 10px;
         }
 
         ::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Colorful glow effects */
+        .glow-gold {
+            text-shadow: 0 0 30px rgba(246, 224, 94, 0.1);
+        }
+
+        .glow-purple {
+            text-shadow: 0 0 30px rgba(183, 148, 244, 0.1);
+        }
+
+        .glow-green {
+            text-shadow: 0 0 30px rgba(104, 211, 145, 0.1);
+        }
+
+        .glow-red {
+            text-shadow: 0 0 30px rgba(252, 129, 129, 0.1);
+        }
+
+        .glow-blue {
+            text-shadow: 0 0 30px rgba(99, 179, 237, 0.1);
         }
     </style>
 </head>
@@ -1173,13 +1279,13 @@
             <div id="signinForm">
                 <form onsubmit="return handleSignIn(event)" id="signinFormElement">
                     <div class="form-group">
-                        <label>Mobile Number <span class="required">*</span></label>
+                        <label>📱 Mobile Number <span class="required">*</span></label>
                         <input type="tel" id="signinMobile" placeholder="Enter 10-digit mobile number" pattern="\d{10}" maxlength="10" required>
                         <div class="hint-text">Enter the mobile number used during registration</div>
                     </div>
 
                     <div class="form-group">
-                        <label>Password <span class="required">*</span></label>
+                        <label>🔒 Password <span class="required">*</span></label>
                         <div class="password-toggle">
                             <input type="password" id="signinPassword" placeholder="Enter your password" required>
                             <button type="button" class="toggle-btn" onclick="togglePassword('signinPassword')">👁️</button>
@@ -1187,7 +1293,7 @@
                     </div>
 
                     <button type="submit" class="submit-btn" id="signinBtn">
-                        <span id="signinBtnText">Sign In</span>
+                        <span id="signinBtnText">🚀 Sign In</span>
                     </button>
                 </form>
                 <div class="form-footer">
@@ -1199,18 +1305,18 @@
             <div id="signupForm" class="hidden">
                 <form onsubmit="return handleSignUp(event)" id="signupFormElement">
                     <div class="form-group">
-                        <label>Full Name <span class="required">*</span></label>
+                        <label>👤 Full Name <span class="required">*</span></label>
                         <input type="text" id="signupName" placeholder="Enter your full name" required autocomplete="name">
                     </div>
 
                     <div class="form-group">
-                        <label>Contact Number <span class="required">*</span></label>
+                        <label>📱 Contact Number <span class="required">*</span></label>
                         <input type="tel" id="signupContact" placeholder="10-digit mobile number" pattern="\d{10}" maxlength="10" required>
                         <div class="hint-text">Enter 10-digit mobile number</div>
                     </div>
 
                     <div class="form-group">
-                        <label>Password <span class="required">*</span></label>
+                        <label>🔒 Password <span class="required">*</span></label>
                         <div class="password-toggle">
                             <input type="password" id="signupPassword" placeholder="Min 6 characters" minlength="6" required>
                             <button type="button" class="toggle-btn" onclick="togglePassword('signupPassword')">👁️</button>
@@ -1219,7 +1325,7 @@
                     </div>
 
                     <button type="submit" class="submit-btn" id="signupBtn">
-                        <span id="signupBtnText">Create Account</span>
+                        <span id="signupBtnText">✨ Create Account</span>
                     </button>
                 </form>
                 <div class="form-footer">
@@ -1240,7 +1346,7 @@
                         <span class="user-status-compact approved" id="userStatusBadgeCompact">Approved</span>
                     </div>
                 </div>
-                <button class="logout-btn-compact" onclick="handleSignOut()">Logout</button>
+                <button class="logout-btn-compact" onclick="handleSignOut()">🚪 Logout</button>
             </div>
 
             <!-- COMPACT WELCOME -->
@@ -1250,7 +1356,7 @@
                 <div class="sync-status">
                     <span id="syncIndicator">🔄 Syncing...</span>
                     <span id="syncTime"></span>
-                    <span id="offlineBadge" class="hidden" style="color:#fefcbf;font-weight:700;">📡 OFFLINE</span>
+                    <span id="offlineBadge" class="hidden" style="color:#f6ad55;font-weight:700;">📡 OFFLINE</span>
                 </div>
             </div>
 
@@ -1276,30 +1382,30 @@
 
             <!-- SUMMARY COUNTS -->
             <div class="summary-header">
-                <span class="summary-header-title">📊 Summary</span>
+                <span class="summary-header-title"><span class="emoji">📊</span> Summary</span>
                 <button class="summary-refresh" onclick="fetchSummary()">↻ Refresh</button>
             </div>
 
             <div class="summary-grid" id="summaryGrid">
                 <div class="summary-card-item total" id="totalCard">
                     <span class="summary-number" id="totalCount">—</span>
-                    <span class="summary-label">Total</span>
+                    <span class="summary-label">⭐ Total</span>
                 </div>
                 <div class="summary-card-item sc" id="scCard">
                     <span class="summary-number" id="countSC">0</span>
-                    <span class="summary-label">SC</span>
+                    <span class="summary-label">🌿 SC</span>
                 </div>
                 <div class="summary-card-item st" id="stCard">
                     <span class="summary-number" id="countST">0</span>
-                    <span class="summary-label">ST</span>
+                    <span class="summary-label">🔥 ST</span>
                 </div>
                 <div class="summary-card-item obc" id="obcCard">
                     <span class="summary-number" id="countOBC">0</span>
-                    <span class="summary-label">OBC</span>
+                    <span class="summary-label">💎 OBC</span>
                 </div>
                 <div class="summary-card-item general" id="generalCard">
                     <span class="summary-number" id="countGeneral">0</span>
-                    <span class="summary-label">Gen</span>
+                    <span class="summary-label">🌟 Gen</span>
                 </div>
             </div>
 
@@ -1310,7 +1416,7 @@
                     <input type="hidden" id="uniqueApplicationNumber" name="UNIQUE_APPLICATION_NUMBER">
 
                     <div class="form-group">
-                        <label>Name of Applicant <span class="required">*</span></label>
+                        <label>👤 Name of Applicant <span class="required">*</span></label>
                         <input type="text" name="NAME_OF_APPLICANT" id="applicantNameInput" 
                                placeholder="Enter applicant's full name" required
                                oninput="generateApplicationNumberSilently(this.value)">
@@ -1318,39 +1424,39 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Family Members Details <span class="required">*</span></label>
+                        <label>👪 Family Members Details <span class="required">*</span></label>
                         <input type="text" name="FAMILY_MEMBERS_DETAILS" placeholder="Family members with relation" required>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label>Date of Birth <span class="required">*</span></label>
+                            <label>📅 Date of Birth <span class="required">*</span></label>
                             <input type="date" name="DATE_OF_BIRTH" required>
                         </div>
                         <div class="form-group">
-                            <label>Gender <span class="required">*</span></label>
+                            <label>⚧️ Gender <span class="required">*</span></label>
                             <select name="GENDER" required>
                                 <option value="">Select</option>
-                                <option value="MALE">Male</option>
-                                <option value="FEMALE">Female</option>
-                                <option value="TRANS">Transgender</option>
+                                <option value="MALE">👨 Male</option>
+                                <option value="FEMALE">👩 Female</option>
+                                <option value="TRANS">🧑 Transgender</option>
                             </select>
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label>SC/ST/OBC/Gen <span class="required">*</span></label>
+                            <label>🏷️ SC/ST/OBC/Gen <span class="required">*</span></label>
                             <select name="SC_ST_OBC_GENERAL" id="casteSelect" required>
                                 <option value="">Select</option>
-                                <option value="SC">SC</option>
-                                <option value="ST">ST</option>
-                                <option value="OBC">OBC</option>
-                                <option value="GENERAL">General</option>
+                                <option value="SC">🌿 SC</option>
+                                <option value="ST">🔥 ST</option>
+                                <option value="OBC">💎 OBC</option>
+                                <option value="GENERAL">🌟 General</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>EPIC Number <span class="required">*</span></label>
+                            <label>🪪 EPIC Number <span class="required">*</span></label>
                             <input type="text" name="EPIC_NUMBER" id="epicNumber" placeholder="Voter ID number" required>
                             <div class="hint-text">Auto-fills Name & Guardian</div>
                         </div>
@@ -1358,35 +1464,35 @@
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label>Name as per ECI <span class="required">*</span></label>
+                            <label>📝 Name as per ECI <span class="required">*</span></label>
                             <input type="text" name="NAME_AS_PER_ECI" id="nameAsPerECI" placeholder="Auto-fills" readonly>
                         </div>
                         <div class="form-group">
-                            <label>Guardian as per ECI <span class="required">*</span></label>
+                            <label>👨‍👦 Guardian as per ECI <span class="required">*</span></label>
                             <input type="text" name="GURDIAN_AS_PER_ECI" id="guardianAsPerECI" placeholder="Auto-fills" readonly>
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label>Aadhaar Number <span class="required">*</span></label>
+                            <label>🆔 Aadhaar Number <span class="required">*</span></label>
                             <input type="text" name="AADHAAR_NUMBER" placeholder="12-digit Aadhaar" pattern="\d{12}" maxlength="12" required>
                         </div>
                         <div class="form-group">
-                            <label>Mobile Number <span class="required">*</span></label>
+                            <label>📱 Mobile Number <span class="required">*</span></label>
                             <input type="tel" name="MOBILE_NUMBER" placeholder="10-digit mobile" pattern="\d{10}" maxlength="10" required>
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label>Bank Name <span class="required">*</span></label>
+                            <label>🏦 Bank Name <span class="required">*</span></label>
                             <select name="NAME_OF_BANK" id="bankNameSelect" required onchange="updateBranches()">
                                 <option value="">Select Bank</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Branch <span class="required">*</span></label>
+                            <label>🏛️ Branch <span class="required">*</span></label>
                             <select name="BRANCH" id="branchSelect" required onchange="updateIFSC()">
                                 <option value="">Select Branch</option>
                             </select>
@@ -1395,22 +1501,22 @@
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label>IFSC Code <span class="required">*</span></label>
+                            <label>🔢 IFSC Code <span class="required">*</span></label>
                             <input type="text" name="IFSC" id="ifscInput" placeholder="Auto-filled" readonly>
                         </div>
                         <div class="form-group">
-                            <label>Account Number <span class="required">*</span></label>
+                            <label>💰 Account Number <span class="required">*</span></label>
                             <input type="text" name="FULL_ACCOUNT_NUMBER" placeholder="Full account number" required>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label>WBSEDCL Consumer ID</label>
+                        <label>⚡ WBSEDCL Consumer ID</label>
                         <input type="text" name="WBSEDCL_CONSUMER_ID" placeholder="Consumer ID (if available)">
                     </div>
 
                     <div class="form-group">
-                        <label>Applicant Photograph <span class="required">*</span></label>
+                        <label>📸 Applicant Photograph <span class="required">*</span></label>
                         <div class="photo-attach-area" id="photoArea">
                             <div id="photoPlaceholder">
                                 <div class="photo-icon">📷</div>
@@ -1430,13 +1536,13 @@
                         </div>
                         <input type="hidden" name="APPLICANT_PHOTOGRAPH_LINK" id="photoLink">
                         <div class="photo-status" id="photoStatus"></div>
-                        <div class="hint-text">📸 Select photo, then <strong>crop</strong> to passport size</div>
+                        <div class="hint-text">📸 Select photo, then <strong style="color:#f6e05e;">crop</strong> to passport size</div>
                     </div>
 
                     <button type="submit" class="submit-btn secondary" id="dataSubmitBtn">
-                        <span id="dataSubmitBtnText">Submit Entry</span>
+                        <span id="dataSubmitBtnText">💾 Submit Entry</span>
                     </button>
-                    <button type="button" class="btn-cancel" onclick="hideDataEntry()">Cancel</button>
+                    <button type="button" class="btn-cancel" onclick="hideDataEntry()">✖ Cancel</button>
                 </form>
             </div>
         </div>
@@ -1454,28 +1560,28 @@
             </div>
             <form onsubmit="return handleChangePassword(event)" id="changePasswordForm">
                 <div class="form-group">
-                    <label>Current Password <span class="required">*</span></label>
+                    <label>🔒 Current Password <span class="required">*</span></label>
                     <div class="password-toggle">
                         <input type="password" id="currentPassword" placeholder="Enter current password" required>
                         <button type="button" class="toggle-btn" onclick="togglePassword('currentPassword')">👁️</button>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label>New Password <span class="required">*</span></label>
+                    <label>🔑 New Password <span class="required">*</span></label>
                     <div class="password-toggle">
                         <input type="password" id="newPassword" placeholder="Min 6 characters" minlength="6" required>
                         <button type="button" class="toggle-btn" onclick="togglePassword('newPassword')">👁️</button>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label>Confirm New Password <span class="required">*</span></label>
+                    <label>✅ Confirm New Password <span class="required">*</span></label>
                     <div class="password-toggle">
                         <input type="password" id="confirmPassword" placeholder="Confirm new password" required>
                         <button type="button" class="toggle-btn" onclick="togglePassword('confirmPassword')">👁️</button>
                     </div>
                 </div>
                 <button type="submit" class="submit-btn" id="changePwdBtn">
-                    <span id="changePwdBtnText">Update Password</span>
+                    <span id="changePwdBtnText">🔄 Update Password</span>
                 </button>
             </form>
         </div>
@@ -1629,15 +1735,15 @@
             
             if (!APP.isOnline) {
                 indicator.textContent = '📡 Offline';
-                indicator.style.color = '#fefcbf';
+                indicator.style.color = '#f6ad55';
                 offlineBadge.classList.remove('hidden');
             } else if (APP.isSyncing) {
                 indicator.textContent = '🔄 Syncing...';
-                indicator.style.color = '#bee3f8';
+                indicator.style.color = '#63b3ed';
                 offlineBadge.classList.add('hidden');
             } else {
                 indicator.textContent = '✅ Synced';
-                indicator.style.color = '#c6f6d5';
+                indicator.style.color = '#68d391';
                 offlineBadge.classList.add('hidden');
                 if (APP.lastSyncTime) {
                     timeEl.textContent = new Date(APP.lastSyncTime).toLocaleTimeString();
